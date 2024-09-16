@@ -12,7 +12,7 @@ Este proyecto, desarrollado como parte de la asignatura de Redes Neuronales y Al
 
 No se requiere ninguna instalación especial para visualizar el contenido del proyecto.
 
-Para visualizar la page del trabajo se puede dirigir al siguiente site: 
+Para visualizar la page del trabajo se puede dirigir al siguiente site: https://paulandreatj.github.io/HealthyRoad/
 
 ## Contribuciones
 
