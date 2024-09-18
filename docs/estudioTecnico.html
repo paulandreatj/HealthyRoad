@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Estudio técnino</title>
+</head>
+<body>
+    <p><a href="index.html">&laquo; Índice</a></p>
+    <h1>Estudio técnico</h1>
+    <p>
+        <div>
+            <p>
+                Con Healthy Road se busca cubrir cada uno de los 10 requerimientos funcionales diseñados en <strong>Análisis de requisitos del Prototipo </strong> <a href="referencias.html#refX23">[X23]</a>, para ello se realizó una búsqueda de un conjunto de datos de entrenamiento con el fin de satisfacer métricas de evaluación satisfactorias en el modelo.
+            </p>
+            <p>
+                El conjunto de imágenes más grandes encontrado fue el dado por un reto sobre detección de daños de carreteras de países como Estados Unidos, China, Japón, Noruega, República Checa e India <a href="referencias.html#refX24">[X24]</a>. Así existan diferencias en los materiales y construcción en la pavimentación de carreteras en los anteriores países, al tener diversidad de esta, se puede llegar a una generalización suficiente para obtener un rendimiento viable en las carreteras de Colombia. Cada imagen cuentan con uno o muchos daños y su respectivo bounding box por cada anomalia en la carretera, la distribución por país, de cada imagen, se encuentra en <strong>¿De dónde sacamos los datos de entrenamiento?</strong> del informe del prototipo <a href="referencias.html#refX25">[X25]</a>.
+            </p>
+
+            <p>
+                Observando las imágenes, obtenemos que son 12 GB aproximadamente de estas, y que tienen distintos escenarios que generar riqueza a la hora de realizar el entrenamiento:
+                
+                <ul>
+                    <li>
+                        Las estructuras de carretera de la India son diferentes a los de Japón. Además, se encuentran daños que se encuentran en otros países, como el caso “Repair” que es una mancha en la carretera que cubre un antiguo daño.
+                    </li>
+                    <li>
+                        Existe desbalance entre los tipos daños, teniendo más concurrencia la clase D00 (grieta generada por marcas de llantas en la carretera) y cada tipo de daño está bien marcado.
+                    </li>
+                    <li>
+                        Existe ruido en las imágenes de Noruega, República Checa e India. En sus imágenes, al ser de cámaras de vehículos, muchas veces la imagen contiene más del paisaje que de la carretera o su daño, lo que puede afectar de forma negativa el entrenamiento.
+                    </li>
+                </ul>
+            </p>
+
+            <p>
+                Se realizó un modelo de datos, en la siguiente figura, donde se muestran las relaciones entre tablas y en el informe del prototipo de la aplicación, en el ítem Detalle de Requisitos de Bases de Datos <a href="referencias.html#ref5">[5]</a> se puede observar ejemplos de dichos registros con sus valores.
+                
+                <div class="center">
+                    <p>
+                        <img src="images/estudioTecnicoModeloER.png">
+                    </p>
+                </div>
+
+            </p>
+
+            <p>
+                En la siguiente tabla, se muestra el esquema general de la aplicación, desde las compras en Bluetooth hasta la salida esperada del modelo.
+
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Conceptos</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Comprar licencias</td>
+                            <td>Basado en un dominio de BlueHost, se realizará la compra de licencias de los 4 tipos inicialmente ofrecidos.</td>
+                        </tr>
+                        <tr>
+                            <td>Alojamiento de datos</td>
+                            <td>
+                                Se guardarán los datos a través de Google Cloud y se accederán a ellos a través de MySQL. Se contarán con datos permanentes y temporales.<br>
+                                <strong>Permanentes:</strong> Datos de los usuarios que adquirieron licencias, metadata de la imagen de entrada a la API, metadata de las predicciones del modelo, interacciones de los usuarios a la API, información de la vía asociada a la carretera.<br>
+                                <strong>Temporales:</strong> Procesamiento de la imagen de entrada y salida; una vez el usuario descargue la imagen de salida, esta será borrada de la aplicación junto con su respectiva imagen de entrada.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Modelo</td>
+                            <td>Teniendo presente la Metodología de IA mostrada en el Prototipo, se realizó Fine Tuning a un modelo YOLO versión 8.</td>
+                        </tr>
+                        <tr>
+                            <td>Implementación de API</td>
+                            <td>
+                                Basado en el Diagrama de Arquitectura mostrada en el Prototipo, el núcleo del programa es una API que recibe la solicitud del cliente con la imagen y, al procesarla, da un response con las predicciones y la imagen con las bounding boxes. 
+                                Dicha implementación fue realizada con FastAPI debido a la facilidad de documentación en Swagger y capacidad ligera de despliegue en producción.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            <div class="center">
+                <p>
+                    <span style="font-size: 12px;">*metadata: Información del nombre del archivo, nombre de la vía y tramo asociado para la imagen de entrada. Para la imagen de salida, el nombre del archivo procesado, la lista de daños y bounding boxes predichos.</span>
+                </p>
+            </div>
+            </p>
+
+            <p>
+                Las pantallas mostradas en <strong>Diagrama de arquitectura del diseño del Prototipo</strong> <a href="referencias.html#ref21">[21]</a> se implementarán a través de JavaScript y Html, los datos se obtendrán a través de consultas a base de datos y el flujo de información será una aproximación del modelo vista-controlador (MVC). 
+            </p>
+        </div>
+    </p>
+    <p><a href="index.html">&laquo; Índice</a></p>
+</body>
+</html>
