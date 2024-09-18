@@ -27,3 +27,13 @@ th, td {
   padding: 10px;
   text-align: center;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: disc; /* Esto asegura que las viñetas (discos) aparezcan */
+}

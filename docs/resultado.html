@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Resultados</title>
+</head>
+<body>
+    <p><a href="index.html">&laquo; Índice</a></p>
+    <h1>Resultados</h1>
+    <p>
+        <div>
+            <p>
+                El éxito de la aplicación está directamente relacionado a las métricas del modelo. En el ítem 3.1.1. Resumen de métricas del Pre-Procesamiento y Entrenamiento del modelo <a href="referencias.html#refX26">[X26]</a>, después de 100 epocs, utilizando la arquitectura de YOLOS versión 8, se obtiene lo siguiente:
+
+                <ul>
+                    <li>
+                        El modelo tiene un promedio de 73.1% en la intersección entre precisión y recall cuando el IoU está por debajo del 50%. Esto indica que la mayoría de los objetos son identificados correctamente, aunque el modelo prefiere precisión sobre recall.
+                    </li>
+                    <li>
+                        La clase D11 tiene una precisión cercana al 50%, lo que sugiere que es la peor clase en términos de detección. En contraste, las clases "Repair" y "D43" son las mejores, con mayor desempeño en umbrales más altos de IoU.
+                    </li>
+                    <li>
+                        El modelo presenta una tendencia a enfocarse más en ser preciso que en captar todos los objetos de interés, lo que significa que algunos objetos no son detectados para evitar falsos positivos. Esto se refleja en un valor promedio de detección del 63.4%.
+                    </li>
+                </ul>
+
+                <p>
+                    Debido al conocimiento de ventajas y desventajas del modelo, se mostrarán las clases sin el coeficiente de confianza cuando se genere la imagen. Además, se sugerirá que la imagen sea tomada como si fuera desde un vehículo, esto es, porque en el entrenamiento la mayoría de imágenes tiene ese estilo.
+                </p>
+            </p>
+        </div>
+    </p>
+    <p><a href="index.html">&laquo; Índice</a></p>
+</body>
+</html>
