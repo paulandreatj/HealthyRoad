@@ -11,8 +11,11 @@ h1 {
 }
 
 #div-centrado img {
+  max-width: 100%;
+  max-height: 100vh;
   display: block;
   margin: auto;
+  object-fit: contain;
 }
 
 table {
