@@ -14,6 +14,6 @@ No se requiere ninguna instalación especial para visualizar el contenido del pr
 
 Para visualizar la page del trabajo se puede dirigir al siguiente site: https://paulandreatj.github.io/HealthyRoad/
 
-## Contribuciones
+## Contribuciones 
 
 Si deseas contribuir a este proyecto, puedes enviar sugerencias, correcciones o mejoras mediante pull requests.
